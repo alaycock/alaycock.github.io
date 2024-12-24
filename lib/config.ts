@@ -145,7 +145,6 @@ export const apiHost = isDev
 export const apiBaseUrl = `/api`
 
 export const api = {
-  searchNotion: `${apiBaseUrl}/search-notion`,
   getNotionPageInfo: `${apiBaseUrl}/notion-page-info`,
   getSocialImage: `${apiBaseUrl}/social-image`
 }
