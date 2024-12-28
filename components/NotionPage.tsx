@@ -3,21 +3,15 @@ import dynamic from 'next/dynamic';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { type PageBlock } from 'notion-types';
 import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils';
 import * as React from 'react';
 import BodyClassName from 'react-body-classname';
-import {
-  type NotionComponents,
-  NotionRenderer,
-  useNotionContext,
-} from 'react-notion-x';
-import { EmbeddedTweet, TweetNotFound, TweetSkeleton } from 'react-tweet';
+import { type NotionComponents, NotionRenderer } from 'react-notion-x';
 import { useSearchParam } from 'react-use';
 
 import type * as types from '@/lib/types';
 import * as config from '@/lib/config';
-import { mapImageUrl } from '@/lib/map-image-url';
+import { mapImageUrlToLocal } from '@/lib/map-image-url';
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url';
 
 import { Footer } from './Footer';
@@ -97,17 +91,6 @@ const Modal = dynamic(
   },
 );
 
-function Tweet({ id }: { id: string }) {
-  const { recordMap } = useNotionContext();
-  const tweet = (recordMap as types.ExtendedTweetRecordMap)?.tweets?.[id];
-
-  return (
-    <React.Suspense fallback={<TweetSkeleton />}>
-      {tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />}
-    </React.Suspense>
-  );
-}
-
 const propertyLastEditedTimeValue = (
   { block, pageHeader },
   defaultFn: () => React.ReactNode,
@@ -167,7 +150,6 @@ export function NotionPage({
       Equation,
       Pdf,
       Modal,
-      Tweet,
       Header: NotionPageHeader,
       propertyLastEditedTimeValue,
       propertyTextValue,
@@ -236,12 +218,13 @@ export function NotionPage({
   const canonicalPageUrl =
     !config.isDev && getCanonicalPageUrl(site, recordMap)(pageId);
 
-  const socialImage = mapImageUrl(
-    getPageProperty<string>('Social Image', block, recordMap) ||
-      (block as PageBlock).format?.page_cover ||
-      config.defaultPageCover,
-    block,
-  );
+  // TODO: Generate hash and read from file, not from the URL
+  // const socialImage = mapNotionUrlToLocal(
+  //   getPageProperty<string>('Social Image', block, recordMap) ||
+  //     (block as types.PageBlock).format?.page_cover ||
+  //     config.defaultPageCover,
+  //   block,
+  // );
 
   const socialDescription =
     getPageProperty<string>('Description', block, recordMap) ||
@@ -254,7 +237,7 @@ export function NotionPage({
         site={site}
         title={title}
         description={socialDescription}
-        image={socialImage}
+        // image={socialImage}
         url={canonicalPageUrl}
       />
 
@@ -280,7 +263,7 @@ export function NotionPage({
         defaultPageCover={config.defaultPageCover}
         defaultPageCoverPosition={config.defaultPageCoverPosition}
         mapPageUrl={siteMapPageUrl}
-        mapImageUrl={mapImageUrl}
+        mapImageUrl={mapImageUrlToLocal}
         searchNotion={null}
         pageAside={pageAside}
         footer={footer}

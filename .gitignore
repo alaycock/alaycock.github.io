@@ -37,3 +37,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# project specific
+## these are fetched from notion and cached
+public/images
