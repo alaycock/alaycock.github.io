@@ -1,15 +1,13 @@
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub'
-import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin'
-import * as React from 'react'
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { FaLinkedin } from '@react-icons/all-files/fa/FaLinkedin';
+import * as React from 'react';
 
-import * as config from '@/lib/config'
+import * as config from '@/lib/config';
 
-import styles from './styles.module.css'
-
-// TODO: merge the data and icons from PageSocial with the social links in Footer
+import styles from './styles.module.css';
 
 export function FooterImpl() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
@@ -43,7 +41,7 @@ export function FooterImpl() {
         )}
       </div>
     </footer>
-  )
+  );
 }
 
-export const Footer = React.memo(FooterImpl)
+export const Footer = React.memo(FooterImpl);

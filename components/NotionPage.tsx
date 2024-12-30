@@ -18,7 +18,6 @@ import { Footer } from './Footer';
 import { Loading } from './Loading';
 import { NotionPageHeader } from './NotionPageHeader';
 import { Page404 } from './Page404';
-import { PageAside } from './PageAside';
 import { PageHead } from './PageHead';
 import styles from './styles.module.css';
 
@@ -91,6 +90,14 @@ const Modal = dynamic(
   },
 );
 
+const propertyFormulaValue = (
+  { block, pageHeader },
+  defaultFn: () => React.ReactNode,
+) => {
+  console.log('propertyFormulaValue', { block, pageHeader });
+  return defaultFn();
+};
+
 const propertyLastEditedTimeValue = (
   { block, pageHeader },
   defaultFn: () => React.ReactNode,
@@ -151,6 +158,7 @@ export function NotionPage({
       Pdf,
       Modal,
       Header: NotionPageHeader,
+      propertyFormulaValue,
       propertyLastEditedTimeValue,
       propertyTextValue,
       propertyDateValue,
@@ -179,13 +187,6 @@ export function NotionPage({
 
   const showTableOfContents = !!isBlogPost;
   const minTableOfContentsItems = 3;
-
-  const pageAside = React.useMemo(
-    () => (
-      <PageAside block={block} recordMap={recordMap} isBlogPost={isBlogPost} />
-    ),
-    [block, recordMap, isBlogPost],
-  );
 
   const footer = React.useMemo(() => <Footer />, []);
 
@@ -218,13 +219,12 @@ export function NotionPage({
   const canonicalPageUrl =
     !config.isDev && getCanonicalPageUrl(site, recordMap)(pageId);
 
-  // TODO: Generate hash and read from file, not from the URL
-  // const socialImage = mapNotionUrlToLocal(
-  //   getPageProperty<string>('Social Image', block, recordMap) ||
-  //     (block as types.PageBlock).format?.page_cover ||
-  //     config.defaultPageCover,
-  //   block,
-  // );
+  const socialImage = mapImageUrlToLocal(
+    getPageProperty<string>('Social Image', block, recordMap) ||
+      (block as types.PageBlock).format?.page_cover ||
+      config.defaultPageCover,
+    block,
+  );
 
   const socialDescription =
     getPageProperty<string>('Description', block, recordMap) ||
@@ -237,7 +237,7 @@ export function NotionPage({
         site={site}
         title={title}
         description={socialDescription}
-        // image={socialImage}
+        image={socialImage}
         url={canonicalPageUrl}
       />
 
@@ -249,14 +249,13 @@ export function NotionPage({
           pageId === site.rootNotionPageId && 'index-page',
         )}
         darkMode={false}
-        disableHeader
         components={components}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}
         rootDomain={site.domain}
         fullPage={!isLiteMode}
         previewImages={!!recordMap.preview_images}
-        showCollectionViewDropdown={false}
+        // showCollectionViewDropdown={false}
         showTableOfContents={showTableOfContents}
         minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={config.defaultPageIcon}
@@ -265,8 +264,8 @@ export function NotionPage({
         mapPageUrl={siteMapPageUrl}
         mapImageUrl={mapImageUrlToLocal}
         searchNotion={null}
-        pageAside={pageAside}
         footer={footer}
+        linkTableTitleProperties={false}
       />
     </>
   );
