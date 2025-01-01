@@ -20,6 +20,7 @@ export default withBundleAnalyzer({
     ],
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
+    unoptimized: true,
   },
 
   webpack: (config, _context) => {
