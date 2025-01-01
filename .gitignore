@@ -40,4 +40,5 @@ yarn-error.log*
 
 # project specific
 ## these are fetched from notion and cached
-public/images
+public/images/*
+!public/images/.stub

@@ -42,11 +42,7 @@ export async function getPreviewImageMap(
 
     if (!exists) {
       const body = await ky(url, { headers: { cookie } }).arrayBuffer();
-      fs.writeFile(
-        filename,
-        new DataView(body),
-        (err) => err && console.log('err', err),
-      );
+      await fsPromises.writeFile(filename, new DataView(body));
     }
   }
 
