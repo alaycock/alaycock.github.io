@@ -1,4 +1,3 @@
-import fs from 'node:fs';
 import fsPromises from 'node:fs/promises';
 
 import ky from 'ky';
