@@ -1,7 +1,7 @@
 import { type GetStaticProps } from 'next';
 
 import { NotionPage } from '@/components/NotionPage';
-import { domain, isDev } from '@/lib/config';
+import { domain } from '@/lib/config';
 import { getSiteMap } from '@/lib/get-site-map';
 import { resolveNotionPage } from '@/lib/resolve-notion-page';
 import { type PageProps, type Params } from '@/lib/types';
@@ -25,13 +25,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 };
 
 export async function getStaticPaths() {
-  if (isDev) {
-    return {
-      paths: [],
-      fallback: false,
-    };
-  }
-
   const siteMap = await getSiteMap();
 
   const staticPaths = {
@@ -43,7 +36,6 @@ export async function getStaticPaths() {
     fallback: false,
   };
 
-  console.log(staticPaths.paths);
   return staticPaths;
 }
 

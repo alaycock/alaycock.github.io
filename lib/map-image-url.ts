@@ -26,6 +26,5 @@ export const mapImageUrlToLocal = (url: string | undefined, block: Block) => {
   const notionUrl = mapImageUrlToNotion(url, block);
   const urlHash = hash(normalizeUrl(notionUrl));
   const filename = `/images/${urlHash}.jpeg`;
-  console.log('Mapping', { notionUrl, urlHash });
   return filename;
 };

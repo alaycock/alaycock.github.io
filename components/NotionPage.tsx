@@ -90,14 +90,6 @@ const Modal = dynamic(
   },
 );
 
-const propertyFormulaValue = (
-  { block, pageHeader },
-  defaultFn: () => React.ReactNode,
-) => {
-  console.log('propertyFormulaValue', { block, pageHeader });
-  return defaultFn();
-};
-
 const propertyLastEditedTimeValue = (
   { block, pageHeader },
   defaultFn: () => React.ReactNode,
@@ -158,7 +150,6 @@ export function NotionPage({
       Pdf,
       Modal,
       Header: NotionPageHeader,
-      propertyFormulaValue,
       propertyLastEditedTimeValue,
       propertyTextValue,
       propertyDateValue,

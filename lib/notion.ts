@@ -24,13 +24,14 @@ const getNavigationLinkPages = pMemoize(
     if (navigationStyle !== 'default' && navigationLinkPageIds.length) {
       return pMap(
         navigationLinkPageIds,
-        async (navigationLinkPageId) =>
-          notion.getPage(navigationLinkPageId, {
+        async (navigationLinkPageId) => {
+          return notion.getPage(navigationLinkPageId, {
             chunkLimit: 1,
             fetchMissingBlocks: false,
             fetchCollections: false,
             signFileUrls: false,
-          }),
+          });
+        },
         {
           concurrency: 4,
         },

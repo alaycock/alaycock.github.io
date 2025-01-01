@@ -40,7 +40,6 @@ export async function getPreviewImageMap(
       else throw err;
     }
 
-    console.log('Downloading', { url, filename });
     if (!exists) {
       const body = await ky(url, { headers: { cookie } }).arrayBuffer();
       fs.writeFile(
@@ -86,8 +85,6 @@ async function createPreviewImage(
       `public/images/${hash(normalizeUrl(url))}.jpeg`,
     );
     const result = await lqip(body);
-
-    console.log('lqip', { ...result.metadata, url, cacheKey });
 
     const previewImage = {
       originalWidth: result.metadata.originalWidth,
