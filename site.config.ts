@@ -10,7 +10,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Hi there!',
-  domain: 'nextjs-notion-starter-kit.transitivebullsh.it', // TODO:
+  domain: 'adamlaycock.ca',
   author: 'Adam Laycock',
 
   // open graph metadata (optional)
