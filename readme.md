@@ -4,10 +4,6 @@ This is a fork of the [Next.js Notion Starter Kit](https://github.com/transitive
 
 <!--
 TODO list
-- Add a favicon
-- Add a 404 page
-- Add a sitemap
-- Add a robots.txt
 - Add a google analytics
 - Articles - link table to page
 - Social links, add strava and instagram
