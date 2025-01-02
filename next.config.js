@@ -12,7 +12,7 @@ export default withBundleAnalyzer({
   images: {
     loader: 'custom',
     imageSizes: [256, 384],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    deviceSizes: [640, 828, 1080, 1200, 1920, 2048, 3840],
   },
   transpilePackages: ['next-image-export-optimizer'],
   env: {

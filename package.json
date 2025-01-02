@@ -12,7 +12,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-image-export-optimizer",
+    "build": "next build && next-image-export-optimizer && next-sitemap",
     "start": "next start",
     "deploy": "vercel deploy",
     "deps:upgrade": "[ -z $GITHUB_ACTIONS ] && pnpm up -L notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:update on CI'",
@@ -40,6 +40,7 @@
     "lqip-modern": "^2.2.1",
     "next": "^15.0.3",
     "next-image-export-optimizer": "^1.18.0",
+    "next-sitemap": "^4.2.3",
     "notion-client": "^7.1.3",
     "notion-types": "^7.1.3",
     "notion-utils": "^7.1.3",
