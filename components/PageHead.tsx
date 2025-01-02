@@ -1,7 +1,7 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
-import type * as types from '@/lib/types'
-import * as config from '@/lib/config'
+import type * as types from '@/lib/types';
+import * as config from '@/lib/config';
 // import { getSocialImageUrl } from '@/lib/get-social-image-url'
 
 export function PageHead({
@@ -10,19 +10,19 @@ export function PageHead({
   description,
   // pageId,
   image,
-  url
+  url,
 }: types.PageProps & {
-  title?: string
-  description?: string
-  image?: string
-  url?: string
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
 }) {
-  const rssFeedUrl = `${config.host}/feed`
+  const rssFeedUrl = `${config.host}/feed`;
 
-  title = title ?? site?.name
-  description = description ?? site?.description
+  title = title ?? site?.name;
+  description = description ?? site?.description;
 
-  const socialImageUrl = /*getSocialImageUrl(pageId) ||*/ image
+  const socialImageUrl = /*getSocialImageUrl(pageId) ||*/ image;
 
   return (
     <Head>
@@ -100,5 +100,5 @@ export function PageHead({
       <meta name='twitter:title' content={title} />
       <title>{title}</title>
     </Head>
-  )
+  );
 }

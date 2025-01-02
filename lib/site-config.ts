@@ -12,6 +12,8 @@ export interface SiteConfig {
 
   github?: string;
   linkedin?: string;
+  instagram?: string;
+  strava?: string;
 
   defaultPageIcon?: string | null;
   defaultPageCover?: string | null;

@@ -19,6 +19,8 @@ export default siteConfig({
   // social usernames (optional)
   github: 'alaycock',
   linkedin: 'alaycock',
+  strava: '5390517',
+  instagram: 'adaminthehills',
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults

@@ -6,8 +6,9 @@ This is a fork of the [Next.js Notion Starter Kit](https://github.com/transitive
 TODO list
 - Add a google analytics
 - Articles - link table to page
-- Social links, add strava and instagram
-- Collections
+- Generate social images?
+- Calculated field doesn't work - "unit" has wrong argument
+- Visual nits
   - Line-height feel wrong
-  - Calculated field - "unit" is wrong
+  - Gallery element spacing
 -->
