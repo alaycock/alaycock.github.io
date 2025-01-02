@@ -7,13 +7,13 @@ import {
   type PreviewImage,
   type PreviewImageMap,
 } from 'notion-types';
-import { getPageImageUrls, normalizeUrl } from 'notion-utils';
+import { getPageImageUrls } from 'notion-utils';
 import pMap from 'p-map';
 import pMemoize from 'p-memoize';
 
 import { defaultPageCover, defaultPageIcon } from './config';
 import { db } from './db';
-import { hash } from './hash';
+import { getFilename, getPath } from './image-files';
 import { mapImageUrlToNotion } from './map-image-url';
 
 const cookie = `notion_user_id=${process.env.NOTION_ACTIVE_USER}; token_v2=${process.env.NOTION_TOKEN_V2}`;
@@ -29,7 +29,7 @@ export async function getPreviewImageMap(
 
   // Download and store the images
   for (const url of urls) {
-    const filename = `public/images/${hash(normalizeUrl(url))}.jpeg`;
+    const filename = getFilename(url);
 
     let exists = true;
     try {
@@ -49,8 +49,9 @@ export async function getPreviewImageMap(
     await pMap(
       urls,
       async (url) => {
-        const cacheKey = normalizeUrl(url);
-        return [cacheKey, await getPreviewImage(url, { cacheKey })];
+        const filename = getFilename(url);
+        const cacheKey = getPath(url);
+        return [cacheKey, await getPreviewImage(filename, { cacheKey })];
       },
       {
         concurrency: 8,
@@ -62,7 +63,7 @@ export async function getPreviewImageMap(
 }
 
 async function createPreviewImage(
-  url: string,
+  filename: string,
   { cacheKey }: { cacheKey: string },
 ): Promise<PreviewImage | null> {
   try {
@@ -76,9 +77,7 @@ async function createPreviewImage(
       console.warn(`redis error get "${cacheKey}"`, err.message);
     }
 
-    const body = await fsPromises.readFile(
-      `public/images/${hash(normalizeUrl(url))}.jpeg`,
-    );
+    const body = await fsPromises.readFile(filename);
     const result = await lqip(body);
 
     const previewImage = {
@@ -96,7 +95,7 @@ async function createPreviewImage(
 
     return previewImage;
   } catch (err) {
-    console.warn('failed to create preview image', url, err.message);
+    console.warn('failed to create preview image', filename, err.message);
     return null;
   }
 }

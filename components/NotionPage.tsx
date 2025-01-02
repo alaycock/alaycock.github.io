@@ -1,8 +1,8 @@
 import cs from 'classnames';
 import dynamic from 'next/dynamic';
-import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import ExportedImage from 'next-image-export-optimizer';
 import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils';
 import * as React from 'react';
 import BodyClassName from 'react-body-classname';
@@ -142,7 +142,7 @@ export function NotionPage({
 
   const components = React.useMemo<Partial<NotionComponents>>(
     () => ({
-      nextLegacyImage: Image,
+      nextImage: ExportedImage,
       nextLink: Link,
       Code,
       Collection,

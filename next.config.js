@@ -10,17 +10,19 @@ export default withBundleAnalyzer({
   output: 'export',
   staticPageGenerationTimeout: 300,
   images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'www.notion.so' },
-      { protocol: 'https', hostname: 'notion.so' },
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'abs.twimg.com' },
-      { protocol: 'https', hostname: 'pbs.twimg.com' },
-      { protocol: 'https', hostname: 's3.us-west-2.amazonaws.com' },
-    ],
-    formats: ['image/avif', 'image/webp'],
-    dangerouslyAllowSVG: true,
-    unoptimized: true,
+    loader: 'custom',
+    imageSizes: [256, 384],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+  },
+  transpilePackages: ['next-image-export-optimizer'],
+  env: {
+    nextImageExportOptimizer_imageFolderPath: 'public/images',
+    nextImageExportOptimizer_exportFolderPath: 'out',
+    nextImageExportOptimizer_quality: '75',
+    nextImageExportOptimizer_storePicturesInWEBP: 'true',
+    nextImageExportOptimizer_exportFolderName: 'nextImageExportOptimizer',
+    nextImageExportOptimizer_generateAndUseBlurImages: 'true',
+    nextImageExportOptimizer_remoteImageCacheTTL: '0',
   },
 
   webpack: (config, _context) => {
@@ -35,7 +37,4 @@ export default withBundleAnalyzer({
     );
     return config;
   },
-
-  // See https://react-tweet.vercel.app/next#troubleshooting
-  transpilePackages: ['react-tweet'],
 });
