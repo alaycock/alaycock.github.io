@@ -77,8 +77,9 @@
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 4vmin 4vmin;
   grid-auto-rows: auto;
-  padding-bottom: 0;
   margin-bottom: 24px;
+  border-top: 0;
+  padding: 0;
 }
 
 @media only screen and (max-width: 600px) {
