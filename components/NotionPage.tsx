@@ -196,7 +196,6 @@ export function NotionPage({
     title,
     pageId,
     rootNotionPageId: site.rootNotionPageId,
-    recordMap,
   });
 
   if (!config.isServer) {
