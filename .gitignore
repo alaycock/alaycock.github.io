@@ -42,3 +42,5 @@ yarn-error.log*
 ## these are fetched from notion and cached
 public/images/*
 !public/images/.stub
+
+nextjs-notion-starter-kit.code-workspace
