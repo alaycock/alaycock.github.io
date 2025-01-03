@@ -5,10 +5,9 @@ This is a fork of the [Next.js Notion Starter Kit](https://github.com/transitive
 <!--
 TODO list
 - Add a google analytics
-- Articles - link table to page
 - Generate social images?
-- Calculated field doesn't work - "unit" has wrong argument
-- Visual nits
-  - Line-height feel wrong
-  - Gallery element spacing
+- Fixes to submit
+  - Calculated field doesn't work - "unit" has wrong argument
+  - Field properties aren't show on the relation -- "collection.format.collection_relation_options.related_properties[].visible"
+  - Show properties on page relations
 -->
