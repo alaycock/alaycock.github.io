@@ -69,8 +69,11 @@ export async function getAllPagesInSpace(
               return false;
             }
 
-            // Don't index the "adventures" collection
-            if (block.parent_id === '9bd3b8a2-7f3e-410b-98bf-8eae46e286f0') {
+            // Only index the "adventures" or "lists" collections
+            if (
+              block.parent_id === '9bd3b8a2-7f3e-410b-98bf-8eae46e286f0' ||
+              block.parent_id === 'adfdd69e-1da8-47b3-be20-69d1fd4a75e0'
+            ) {
               return false;
             }
 
