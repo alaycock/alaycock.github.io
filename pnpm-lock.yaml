@@ -56,6 +56,9 @@ importers:
       p-memoize:
         specifier: ^7.1.1
         version: 7.1.1
+      p-queue:
+        specifier: ^8.0.1
+        version: 8.0.1
       posthog-js:
         specifier: ^1.181.0
         version: 1.203.3
