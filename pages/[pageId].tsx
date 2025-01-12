@@ -40,5 +40,5 @@ export async function getStaticPaths() {
 }
 
 export default function NotionDomainDynamicPage(props) {
-  return <NotionPage {...props} />;
+  return <NotionPage pageWidth={720} {...props} />;
 }

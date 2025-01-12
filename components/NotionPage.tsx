@@ -136,7 +136,8 @@ export function NotionPage({
   recordMap,
   error,
   pageId,
-}: types.PageProps) {
+  pageWidth,
+}: types.NotionPageProps) {
   const router = useRouter();
   const lite = useSearchParam('lite');
 
@@ -245,7 +246,7 @@ export function NotionPage({
         rootDomain={site.domain}
         fullPage={!isLiteMode}
         previewImages={!!recordMap.preview_images}
-        // showCollectionViewDropdown={false}
+        pageWidth={pageWidth}
         showTableOfContents={showTableOfContents}
         minTableOfContentsItems={minTableOfContentsItems}
         defaultPageIcon={config.defaultPageIcon}
