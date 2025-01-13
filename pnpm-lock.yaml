@@ -42,14 +42,14 @@ importers:
         specifier: ^4.2.3
         version: 4.2.3(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       notion-client:
-        specifier: ^7.1.3
-        version: 7.1.5
+        specifier: ^7.1.6
+        version: 7.1.6
       notion-types:
-        specifier: ^7.1.3
-        version: 7.1.5
+        specifier: ^7.1.6
+        version: 7.1.6
       notion-utils:
-        specifier: ^7.1.3
-        version: 7.1.5
+        specifier: ^7.1.6
+        version: 7.1.6
       p-map:
         specifier: ^7.0.2
         version: 7.0.2
@@ -75,7 +75,7 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
       react-notion-x:
-        specifier: file:./react-notion-x.tar.gz
+        specifier: file:react-notion-x.tar.gz
         version: file:react-notion-x.tar.gz(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-use:
         specifier: ^17.4.2
@@ -4888,24 +4888,16 @@ packages:
     resolution: {integrity: sha512-IO9QvjUMWxPQQhs60oOu10CRkWCiZzSUkzbXGGV9pviYl1fXYcvkzQ5jV9z8Y6un8ARoVRl4EtC6v6jNqbaJ/w==}
     engines: {node: '>=14.16'}
 
-  notion-client@7.1.5:
-    resolution: {integrity: sha512-dEHRzZy8BCa0SkcmjgZXOdW4edt8oHFhR3K23Gq7uaRHjMbNkxPtBNEggQ+goBSOEqRkrgijUQgdQtxlVVQ9sg==}
+  notion-client@7.1.6:
+    resolution: {integrity: sha512-NWcUM7wsMQnTLU/CLiuhQt4Zkollx+ZQy5L+3vn9SYBq7tr+d2JWzxCUSpRujVA7NGIqUR/7bphHa8HvayG4BA==}
     engines: {node: '>=18'}
 
-  notion-types@7.1.3:
-    resolution: {integrity: sha512-kUcMa5SXpzNxmE9PdrSjiP1lmba8ue7+KdMjcmq8QO/wOmdmXCKhr1FHXNqP5Wdxmm2i9sDq87x0S1pA/vJ4kg==}
+  notion-types@7.1.6:
+    resolution: {integrity: sha512-bWv5wGrlaEKPd0qGWJq0G5cq8uwgfMKhCM+5GEgdXfzuDD9eoKX2pkfdXnE5bU2uFJJK+LGc2XWggBJ+P8AWCg==}
     engines: {node: '>=18'}
 
-  notion-types@7.1.5:
-    resolution: {integrity: sha512-m/7DVYx5MLMWwdU5SWfK5VSUAsJqah7ZnG6sv1AGZikmxmzwAAUxncVmkodyRWo/EXaymp1qw1AwniFIV7IbEQ==}
-    engines: {node: '>=18'}
-
-  notion-utils@7.1.3:
-    resolution: {integrity: sha512-52dReJMdEBt6O4f/Y9FZqhRNBoDY73p0i1XSqpunaTzxIQW61St6a+8bhZ0HiFPpXvxPUw7HCBfNAqn0CrmF2A==}
-    engines: {node: '>=18'}
-
-  notion-utils@7.1.5:
-    resolution: {integrity: sha512-KrPuwy5cLOk440KVsHa3X3MH0Kp5yF0ScfiJdIgSmUibqyLBnfvJJPTIaoaE5m/M+nflQsQDpMLHp21UXCadDQ==}
+  notion-utils@7.1.6:
+    resolution: {integrity: sha512-f8QgisZ9dsUea5Ih2kOtzABBdZpYXKvrMV5OegRpHIXYpBUnN3iOr59EtuyuUkcZcKnUCVcMGvnezoAnEMVCSw==}
     engines: {node: '>=18'}
 
   npm-normalize-package-bin@4.0.0:
@@ -5768,8 +5760,8 @@ packages:
       react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
 
   react-notion-x@file:react-notion-x.tar.gz:
-    resolution: {integrity: sha512-ZH/J6DLbVOR/ZdslS3eeWzCuS3EM/r2ZM9s6pfT4LYrL+ps05r6pjy7YMRJcRKTTf+8cONlAucv+8y1raRLUkA==, tarball: file:react-notion-x.tar.gz}
-    version: 7.2.5
+    resolution: {integrity: sha512-xgjQKv3B6xpWq0wHG+UPkAI8jzCVz9f8cWYdNm5e0E6xFhGSlVQDO4Uzm9z6M2Wy/FYLTBJzgKp55o8s3wwC7Q==, tarball: file:react-notion-x.tar.gz}
+    version: 7.2.6
     engines: {node: '>=18'}
     peerDependencies:
       react: '>=18'
@@ -12517,31 +12509,21 @@ snapshots:
 
   normalize-url@8.0.1: {}
 
-  notion-client@7.1.5:
+  notion-client@7.1.6:
     dependencies:
       ky: 1.7.2
-      notion-types: 7.1.5
-      notion-utils: 7.1.5
+      notion-types: 7.1.6
+      notion-utils: 7.1.6
       p-map: 7.0.2
 
-  notion-types@7.1.3: {}
+  notion-types@7.1.6: {}
 
-  notion-types@7.1.5: {}
-
-  notion-utils@7.1.3:
+  notion-utils@7.1.6:
     dependencies:
       is-url-superb: 6.1.0
       mem: 10.0.0
       normalize-url: 8.0.1
-      notion-types: 7.1.3
-      p-queue: 8.0.1
-
-  notion-utils@7.1.5:
-    dependencies:
-      is-url-superb: 6.1.0
-      mem: 10.0.0
-      normalize-url: 8.0.1
-      notion-types: 7.1.5
+      notion-types: 7.1.6
       p-queue: 8.0.1
 
   npm-normalize-package-bin@4.0.0: {}
@@ -13434,8 +13416,8 @@ snapshots:
       '@fisch0920/medium-zoom': 1.0.7
       '@matejmazur/react-katex': 3.1.3(katex@0.16.11)(react@18.3.1)
       katex: 0.16.11
-      notion-types: 7.1.3
-      notion-utils: 7.1.3
+      notion-types: 7.1.6
+      notion-utils: 7.1.6
       prismjs: 1.29.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
