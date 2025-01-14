@@ -1,4 +1,4 @@
-name: Trigger Deploy on Comment
+name: Trigger Deploy via Comment
 
 on:
   issue_comment:
@@ -9,4 +9,3 @@ jobs:
   trigger-deploy:
     if: github.event.comment.body == 'deploy' && github.event.issue.number == 1 && github.actor == 'alaycock'
     uses: ./.github/workflows/deploy.yml
-    runs-on: ubuntu-latest
