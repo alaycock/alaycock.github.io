@@ -245,9 +245,16 @@
   justify-content: center;
 }
 
-.notion-collection-row-property:has(.notion-property:empty) {
-  display: none;
+/* Handle nested properties in a single row */
+.notion-collection-row-property .notion-property .notion-property {
+  display: inline-flex;
+  width: auto;
+  margin-left: 6px;
 }
+
+/* .notion-collection-row-property:has(.notion-property:empty) {
+  display: none;
+} */
 
 .notion-collection-row-value {
   display: flex;

@@ -60,6 +60,35 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
     }
   }
 
+  const collectionsToFetch = new Set<string>();
+  for (const collectionId in recordMap.collection) {
+    const collection = recordMap.collection[collectionId].value;
+    for (const schemaItemId in collection.schema) {
+      const schemaItem = collection.schema[schemaItemId];
+      if (schemaItem.type === 'relation') {
+        collectionsToFetch.add(schemaItem.collection_pointer.id);
+      }
+    }
+  }
+  console.log('getting collections', collectionsToFetch);
+
+  if (collectionsToFetch.size > 0) {
+    const collectionRecordMap = await notion.fetch<{
+      recordMap: ExtendedRecordMap;
+    }>({
+      endpoint: 'syncRecordValues',
+      body: {
+        requests: Array.from(collectionsToFetch).map((collectionId) => ({
+          table: 'collection',
+          id: collectionId,
+          version: -1,
+        })),
+      },
+    });
+    console.log('collectionRecordMap', collectionRecordMap);
+    recordMap = mergeRecordMaps(recordMap, collectionRecordMap.recordMap);
+  }
+
   if (isPreviewImageSupportEnabled) {
     const previewImageMap = await getPreviewImageMap(recordMap);
     (recordMap as any).preview_images = previewImageMap;

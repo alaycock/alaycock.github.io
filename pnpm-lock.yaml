@@ -43,13 +43,13 @@ importers:
         version: 4.2.3(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       notion-client:
         specifier: ^7.1.6
-        version: 7.1.6
+        version: link:../react-notion-x/packages/notion-client
       notion-types:
         specifier: ^7.1.6
-        version: 7.1.6
+        version: link:../react-notion-x/packages/notion-types
       notion-utils:
         specifier: ^7.1.6
-        version: 7.1.6
+        version: link:../react-notion-x/packages/notion-utils
       p-map:
         specifier: ^7.0.2
         version: 7.0.2
@@ -76,7 +76,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-notion-x:
         specifier: file:./react-notion-x-7.2.6.tgz
-        version: file:react-notion-x-7.2.6.tgz(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: link:../react-notion-x/packages/react-notion-x
       react-use:
         specifier: ^17.4.2
         version: 17.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4888,18 +4888,6 @@ packages:
     resolution: {integrity: sha512-IO9QvjUMWxPQQhs60oOu10CRkWCiZzSUkzbXGGV9pviYl1fXYcvkzQ5jV9z8Y6un8ARoVRl4EtC6v6jNqbaJ/w==}
     engines: {node: '>=14.16'}
 
-  notion-client@7.1.6:
-    resolution: {integrity: sha512-NWcUM7wsMQnTLU/CLiuhQt4Zkollx+ZQy5L+3vn9SYBq7tr+d2JWzxCUSpRujVA7NGIqUR/7bphHa8HvayG4BA==}
-    engines: {node: '>=18'}
-
-  notion-types@7.1.6:
-    resolution: {integrity: sha512-bWv5wGrlaEKPd0qGWJq0G5cq8uwgfMKhCM+5GEgdXfzuDD9eoKX2pkfdXnE5bU2uFJJK+LGc2XWggBJ+P8AWCg==}
-    engines: {node: '>=18'}
-
-  notion-utils@7.1.6:
-    resolution: {integrity: sha512-f8QgisZ9dsUea5Ih2kOtzABBdZpYXKvrMV5OegRpHIXYpBUnN3iOr59EtuyuUkcZcKnUCVcMGvnezoAnEMVCSw==}
-    engines: {node: '>=18'}
-
   npm-normalize-package-bin@4.0.0:
     resolution: {integrity: sha512-TZKxPvItzai9kN9H/TkmCtx/ZN/hvr3vUycjlfmH0ootY9yFBzNOpiXAdIn1Iteqsvk4lQn6B5PTrt+n6h8k/w==}
     engines: {node: ^18.17.0 || >=20.5.0}
@@ -5758,14 +5746,6 @@ packages:
     peerDependencies:
       react: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
       react-dom: ^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18
-
-  react-notion-x@file:react-notion-x-7.2.6.tgz:
-    resolution: {integrity: sha512-ixT5GFVdTb5lB78fjmlFXZSrwQxRDMfDd8GzHuqjqHhqtlDzQTOeiWNbWXkRuiOcBLLnOtoBSlkjFvvM8aflEg==, tarball: file:react-notion-x-7.2.6.tgz}
-    version: 7.2.6
-    engines: {node: '>=18'}
-    peerDependencies:
-      react: '>=18'
-      react-dom: '>=18'
 
   react-pdf@9.1.1:
     resolution: {integrity: sha512-Cn3RTJZMqVOOCgLMRXDamLk4LPGfyB2Np3OwQAUjmHIh47EpuGW1OpAA1Z1GVDLoHx4d5duEDo/YbUkDbr4QFQ==}
@@ -12509,23 +12489,6 @@ snapshots:
 
   normalize-url@8.0.1: {}
 
-  notion-client@7.1.6:
-    dependencies:
-      ky: 1.7.2
-      notion-types: 7.1.6
-      notion-utils: 7.1.6
-      p-map: 7.0.2
-
-  notion-types@7.1.6: {}
-
-  notion-utils@7.1.6:
-    dependencies:
-      is-url-superb: 6.1.0
-      mem: 10.0.0
-      normalize-url: 8.0.1
-      notion-types: 7.1.6
-      p-queue: 8.0.1
-
   npm-normalize-package-bin@4.0.0: {}
 
   npm-run-all2@7.0.1:
@@ -13410,29 +13373,6 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-lifecycles-compat: 3.0.4
       warning: 4.0.3
-
-  react-notion-x@file:react-notion-x-7.2.6.tgz(@babel/runtime@7.26.0)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      '@fisch0920/medium-zoom': 1.0.7
-      '@matejmazur/react-katex': 3.1.3(katex@0.16.11)(react@18.3.1)
-      katex: 0.16.11
-      notion-types: 7.1.6
-      notion-utils: 7.1.6
-      prismjs: 1.29.0
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-fast-compare: 3.2.2
-      react-hotkeys-hook: 4.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-image: 4.1.0(@babel/runtime@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-lazy-images: 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-modal: 3.16.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    optionalDependencies:
-      react-pdf: 9.1.1(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    transitivePeerDependencies:
-      - '@babel/runtime'
-      - '@types/react'
-      - encoding
-      - supports-color
 
   react-pdf@9.1.1(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
