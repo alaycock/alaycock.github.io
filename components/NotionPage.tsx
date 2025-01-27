@@ -90,19 +90,17 @@ const Modal = dynamic(
   },
 );
 
-const PageLink = (props) => {
+function PageLink(props) {
   const router = useRouter();
-  console.log(router);
-  console.log(props);
-  const illegalCollectionIds = [
+  const illegalCollectionIds = new Set([
     '9bd3b8a2-7f3e-410b-98bf-8eae46e286f0',
     'adfdd69e-1da8-47b3-be20-69d1fd4a75e0',
-  ];
+  ]);
   let shouldLink = true;
   React.Children.forEach(props.children, (child) => {
     if (
       child?.props?.block?.parent_table === 'collection' &&
-      illegalCollectionIds.includes(child?.props?.block?.parent_id)
+      illegalCollectionIds.has(child?.props?.block?.parent_id)
     ) {
       shouldLink = false;
     }
@@ -111,7 +109,7 @@ const PageLink = (props) => {
     return <a {...props} onClick={() => router.push(props.href)} />;
   }
   return <>{props.children}</>;
-};
+}
 
 const propertyLastEditedTimeValue = (
   { block, pageHeader },
